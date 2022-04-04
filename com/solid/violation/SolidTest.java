@@ -1,42 +1,48 @@
 package com.solid.violation;
 
 
-interface TravelBooking {
-	public void bookTicket();
-	public void bookRentalCar();
-	public void bookRentalBike();
-
+interface Vehicle{
+	public void rentalBike();
+	public void rentalCars();
 }
-class TicketBookingByAgent implements TravelBooking {
-
-	@Override
-	public void bookTicket() {
-		trainTicket();
+class Flight{
+	public void flight1() {
+		System.out.println(" Flight1 Ticket Booked Sucessfully");
 	}
-
-	@Override
-	public void bookRentalCar() {
-
+	public void flight2(){
+		System.out.println(" Flight2 Ticket Booked Sucessfully");
 	}
+}
 
+class TicketBooking1 extends Flight{
 	@Override
-	public void bookRentalBike() {
-
+	public void flight1() {
+		System.out.println(" Flight1 Ticket Booked Sucessfully");
 	}
-
-	public void trainTicket()
-	{
-		System.out.println("Train Ticket Booked Successfully");
+	public void train(){
+		System.out.println(" train Ticket Booked Sucessfully");
 	}
 
 }
-class TrainTicket extends TicketBookingByAgent {
+class VehicleBooking implements Vehicle{
+
 	@Override
-	public void bookTicket() {
-		System.out.println("Train Ticket Booked Successfully");
+	public void rentalBike() {
+		System.out.println("bike booked");
+	}
+
+	@Override
+	public void rentalCars() {
+		System.out.println("car booked");
 	}
 }
+
 public class SolidTest {
-	TicketBookingByAgent t=new TrainTicket();
+	public static void main(String[] args) {
+		TicketBooking1 tb=new TicketBooking1();
+
+		tb.flight1();
+		tb.train();
+	}
 
 }
